@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# for ls
+for i in `ls`; do echo $i | cut -d '-' -f2; done
