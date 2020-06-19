@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#ash script that displays numbers from 1 to 20 and
+#Bash script that displays numbers from 1 to 20 and
 
 i=1
 while [ $i -le 20 ]
