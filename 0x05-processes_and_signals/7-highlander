@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#Thanos
+
+trap 'echo "I am invincible!!!"' SIGTERM
+a=1
+while (($a))
+do 
+        echo "To infinity and beyond"
+        sleep 2
+done
