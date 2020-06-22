@@ -2,8 +2,7 @@
 #Thanos
 
 trap 'echo "I am invincible!!!"' SIGTERM
-a=1
-while (($a))
+while ((1))
 do 
         echo "To infinity and beyond"
         sleep 2
