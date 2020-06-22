@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#Comment
+#Bash script that displays a list of currently running processes.
 
 
 ps auxf
