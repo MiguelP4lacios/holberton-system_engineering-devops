@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Avengers endgame
+
+pkill -f -SIGKILL 7-highlander
