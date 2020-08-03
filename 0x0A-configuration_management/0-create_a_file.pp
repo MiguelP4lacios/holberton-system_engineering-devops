@@ -1,7 +1,7 @@
 file { '/tmp/holberton':
   path    => '/tmp/holberton',
+  mode    => '0744',
   owner   => 'www-data',
   group   => 'www-data',
-  mode    => '0744',
   content => 'I love Puppet',
 }
