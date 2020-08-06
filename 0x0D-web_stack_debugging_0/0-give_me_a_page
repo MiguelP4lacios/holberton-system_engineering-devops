@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # fix curl: (52) Empty reply from server
 
-sudo docker exec -it 5f8d3e635f37 service apache2 start
+service apache2 start
