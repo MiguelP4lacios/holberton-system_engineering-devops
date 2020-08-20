@@ -1,4 +1,4 @@
-ufw enable
 ufw 22/tcp
 ufw 443/tcp
 ufw 80/tcp
+ufw enable
