@@ -22,6 +22,6 @@ if __name__ == "__main__":
     with open("{}.csv".format(employee_id), mode='w') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for task in tasks:
-            row = [argv[1], EMPLOYEE_NAME, task.get(
+            row = [employee_id, EMPLOYEE_NAME, task.get(
                 'completed'), task.get('title')]
             writer.writerow(row)
