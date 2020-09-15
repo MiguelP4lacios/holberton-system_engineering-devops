@@ -18,7 +18,7 @@ if __name__ == "__main__":
     tasks = requests.get(URL_TASKS).json()
 
     with open('{}.csv'.format(employee_id), mode='w') as file:
-        writer = csv.writer(file, quoting=csv.QUOTE_ALL)
+        _writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for task in tasks:
-            writer.writerow([employee_id, employee.get('name'),
+            _writer.writerow([employee_id, employee.get('name'),
                              task.get('completed'), task.get('title')])
