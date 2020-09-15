@@ -6,19 +6,25 @@ import csv
 import requests
 from sys import argv
 
+
 if __name__ == "__main__":
+    file_name = "{}.csv".format(argv[1])
+    user_id = int(argv[1])
 
-    employee_id = int(argv[1])
-
-    employee = requests.get(
+    # get the info of the users and tasks by his id in dict format
+    users = requests.get(
         "https://jsonplaceholder.typicode.com/users/{}".format(
-            employee_id)).json()
-    tasks = requests.get(
+            argv[1])).json()
+    todos = requests.get(
         "https://jsonplaceholder.typicode.com/todos?userId={}".format(
-            employee_id)).json()
+            argv[1])).json()
 
-    with open('{}.csv'.format(employee_id), mode='w') as file:
-        _writer = csv.writer(file, quoting=csv.QUOTE_ALL)
-        for task in tasks:
-            _writer.writerow([employee_id, employee.get('name'),
-                              task.get('completed'), task.get('title')])
+    # create and open a file and fill with the info below
+    with open(file_name, mode='w') as csvfile:
+        content = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+        for todo in todos:
+            content.writerow(
+                [user_id,
+                    users.get('username'),
+                    todo.get('completed'),
+                    todo.get('title')])
