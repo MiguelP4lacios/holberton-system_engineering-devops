@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     EMPLOYEE_NAME = employee.get('name')
 
-    with open("{}.csv".format(employee_id), mode='w') as file:
+    with open('{}.csv'.format(employee_id), mode='w') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for task in tasks:
             row = [employee_id, EMPLOYEE_NAME, task.get(
