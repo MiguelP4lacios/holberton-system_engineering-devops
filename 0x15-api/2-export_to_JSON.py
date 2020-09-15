@@ -17,15 +17,13 @@ if __name__ == "__main__":
     employee = requests.get(URL_EMPLOYEE).json()
     tasks = requests.get(URL_TASKS).json()
 
-    EMPLOYEE_NAME = employee.get('name')
-
     data = {}
     data[str(employee_id)] = []
     for task in tasks:
         data[str(employee_id)].append({
             'task': task.get('title'),
             'completed': task.get('completed'),
-            'username': EMPLOYEE_NAME
+            'username': employee.get('name')
         })
     with open("{}.json".format(employee_id), mode='w') as file:
         json.dump(data, file)
