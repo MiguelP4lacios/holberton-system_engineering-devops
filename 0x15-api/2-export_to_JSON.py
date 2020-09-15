@@ -6,24 +6,25 @@ import json
 import requests
 from sys import argv
 
+
 if __name__ == "__main__":
+    USER_ID = argv[1]
+    user = requests.get('https://jsonplaceholder.typicode.com/users/{}'.format(
+        USER_ID)).json()
+    list_to_do = requests.get(
+        'https://jsonplaceholder.typicode.com/todos?userId={}'.format(
+            USER_ID)).json()
 
-    employee_id = int(argv[1])
-    URL_EMPLOYEE = "https://jsonplaceholder.typicode.com/users/{}".format(
-        employee_id)
-    URL_TASKS = "https://jsonplaceholder.typicode.com/todos?userId={}".format(
-        employee_id)
-
-    employee = requests.get(URL_EMPLOYEE).json()
-    tasks = requests.get(URL_TASKS).json()
-
-    data = {}
-    data[argv[1]] = []
-    for task in tasks:
-        data[argv[1]].append({
+    dict_task = []
+    for task in list_to_do:
+        task_field = {
             'task': task.get('title'),
             'completed': task.get('completed'),
-            'username': employee.get('name')
-        })
-    with open('{}.json'.format(employee_id), mode='w') as file:
-        json.dump(data, file)
+            'username': user.get('username')
+        }
+        dict_task.append(task_field)
+
+    task_json = {}
+    task_json[USER_ID] = dict_task
+    with open('{}.json'.format(USER_ID), 'w') as file:
+        json.dump(task_json, file)
