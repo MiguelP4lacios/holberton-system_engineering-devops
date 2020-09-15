@@ -18,9 +18,9 @@ if __name__ == "__main__":
     tasks = requests.get(URL_TASKS).json()
 
     data = {}
-    data[str(employee_id)] = []
+    data[argv[1]] = []
     for task in tasks:
-        data[str(employee_id)].append({
+        data[argv[1]].append({
             'task': task.get('title'),
             'completed': task.get('completed'),
             'username': employee.get('name')
