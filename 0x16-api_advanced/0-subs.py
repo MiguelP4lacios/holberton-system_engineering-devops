@@ -8,7 +8,7 @@ import requests
 
 def number_of_subscribers(subreddit):
     """function that queries the Reddit API and
-    returns the number of subscribers 
+    returns the number of subscribers
     """
 
     URL = "https://www.reddit.com/r/{}/about.json".format(subreddit)
