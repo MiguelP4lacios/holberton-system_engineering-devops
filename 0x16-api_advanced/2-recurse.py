@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-"""API advanced"""
+"""Module API """
 
 import json
 import requests
-import sys
 
 
 def recurse(subreddit, hot_list=[], after=None):
@@ -19,8 +18,8 @@ def recurse(subreddit, hot_list=[], after=None):
         urls = url.format(subreddit, after)
     else:
         url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    header = {"User-Agent": "Mozilla/5.0 (Windows\
-               NT 6.1; Win64; x64; rv:47.0)"}
+
+    header = {"User-Agent": "RED"}
 
     request = requests.get(url, headers=header)
 
